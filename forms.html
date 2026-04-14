@@ -1,16 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form action="https://www.wschools.com/action_page.php">
+    <form action="https://www.w3schools.com/action_page.php">
         Nome do usuário: <input type="text" name="usuario"><br>
         Senha: <input type="passaword" name="senha"><br>
         <input type="submit" value="Login">
     </form>
+
+    <hr>
     
+    <form action="https://www.w3schools.com/action_page.php">
+        <input type="text" name="busca" placeholder="Digite um filme...">
+        <input type="submit" value="Procurar">
+    </form>
+    
+    <hr>
+
+        <form action="https://www.w3schools.com/action_page.php">
+        <fieldset>
+            <legend>Formulário de Contato</legend>
+            Nome: <input type="text" name="nome"><br>
+            E-mail: <input type="email" name="email"><br>
+            Assunto: <input type="text" name="assunto"><br>
+            Mensagem: <textarea name="mensagem"></textarea><br>
+            <input type="submit" value="Enviar">
+        </fieldset>
+    </form>
+
+    <hr>
+
+    <form action="https://www.w3schools.com/action_page.php" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Cadastro de Produto</legend>
+            Nome: <input type="text" name="nome" required><br>
+            Código: <input type="text" name="codigo"><br>
+            Preço: <input type="text" name="preco"><br>
+            Seção: <select  name="secao">
+                <option value="1">Batata</option>
+                <option value="2">Feijão</option>
+                <option value="3">Hortifrúti</option>
+                <option value="4">Limpeza</option>
+                </select><br>
+                Foto: <input type="file" name="foto"><br>
+                Vencimento: <input type="date" name="Calendário"><br>
+                <input type="submit" value="Casdastrar">
+        </fieldset>
+    </form>
+
 </body>
+
 </html>

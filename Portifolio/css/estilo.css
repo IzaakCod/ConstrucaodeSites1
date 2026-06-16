@@ -1,17 +1,133 @@
+* {
+    font-family: Verdana;
+}
+
+body {
+    margin: 0px;
+    /*background-image: url('../img/textura.jpg');*/
+    background-color: lightgray;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: purple;
+}
+
+nav {
+    background-color: purple;
+}
+
+main {
+    background-color: white;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+    height: calc(100vh - 20px);
+}
+
+footer {
+    background-color: purple;
+}
+
+img {
+    max-width: 100%;
+}
+
+form {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+}
+
+input:focus {
+    background-color: yellow;
+}
+
+input:invalid {
+    background-color: red;
+}
+
+h1::first-letter {
+    color: red;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-link:hover {
+    color: #000000;
+}
+
+.bold {
+    font-weight: bold;
+}
+
 a[target] {
     border: 1px dashed gray;
     border-radius: 8px;
     padding: 3px;
 }
 
-/***********************************************/
+.primeiro::first-line {
+    font-weight: bold;
+    background-color: magenta;
+}
+
+::selection {
+    background-color: green;
+    color: cyan;
+}
+
+div.produto {
+    border: 10px solid transparent;
+    outline: 1px solid black;
+    outline-offset: 5px;
+    width: 300px;
+    height: 400px;
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    vertical-align: top;
+    overflow-y: auto;
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    /*img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }*/
+
+    .imagem {
+        width: 100%;
+        aspect-ratio: 1;
+        /*background-image: url("https://campo-minado.com/media/campo-minado.png");*/
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+div.produto:hover {
+    border: 10px solid gray;
+}
+
+/***************************************/
+
 .menulist {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
-    background-color: rgb(173, 173, 225);
+    background-color: #666;
     overflow: hidden;
-    /* width: 100px; */
+    /*width: 200px;*/
 }
 
 .menuitem {
@@ -26,23 +142,22 @@ a[target] {
 }
 
 .menuitem a:hover,
-.menuitem:hover .droppbutton {
-    background-color: #555;
-    color: #fff;
+.menuitem:hover .dropbutton {
+    background-color: #999;
+    color: #FFF;
 }
 
 .active {
-    background-color: aqua;
-    color: #fff;
-
+    background-color: #4A5;
+    color: #FFF;
 }
 
 .dropcontent {
     display: none;
     position: absolute;
-    background-color: #eee;
+    background-color: #EEE;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropcontent a {
@@ -54,6 +169,10 @@ a[target] {
     display: block;
 }
 
+.dropcontent a:hover {
+    background-color: #333;
+}
+
 .modal {
     background-color: #0008;
     position: fixed;
@@ -61,7 +180,7 @@ a[target] {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    /* display: none; */
+    display: none;
 }
 
 .modal-popup {
@@ -74,6 +193,51 @@ a[target] {
     border-radius: 10px;
 }
 
-.modal-header{
-    border-bottom: 1px solid gray
+.modal-header, 
+.modal-body {
+    border-bottom: 1px solid gray;
+}
+
+.modal-body {
+    padding: 10px;
+    height: calc(100% - 135px);
+}
+
+.modal-footer {
+    text-align: center;
+    padding: 10px;
+}
+
+div.noticias {
+
+    div {
+        border: 1px solid gray;
+        border-radius: 10px;
+        padding: 10px;
+        display: inline-block;
+        width: 29%;
+        height: 60px;
+        vertical-align: top;
+        margin: 5px;
+    }
+
+    button {
+        background-color: yellow;
+    }
+}
+
+/** Media Query para Dispositivos ***/
+@media (max-width: 768px) {
+    main {
+        width: calc(100% - 20px);
+    }   
+    
+    div.noticias {
+        div {
+            display: block;
+            width: calc(100% - 25px);
+            margin: 0px;
+            margin-bottom: 5px;
+        }
+    }
 }

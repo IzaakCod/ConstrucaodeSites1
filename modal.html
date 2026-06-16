@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de Navegação</title>
-    <link rel="stylesheet" href="Portifolio/css/estilo.css">
-</head>
-
-<body>
-    <p>
-        Brasil ganhou a copa!
-        <button onclick="exibirPopup('Brasil ganhou a copa!', 'Pegadinha')"></button>
-    </p>
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>Janela Modal</title>
+        <link rel="stylesheet" href="Portifolio/css/estilo.css">
+    </head>
+    
+    <body>
+        <main>
+            <h1>Notícias</h1>
+            <div class="noticias"></div>
+        </main>
     <div class="modal">
         <div class="modal-popup">
             <div class="modal-header">
                 <h2>Título Popup</h2>
-                <div>
-                    <div class="modal-body">
-                        Aqui vai o conteúdo do modal
-                    </div>
-                </div>
             </div>
+            <div class="modal-body">
+                Aqui vai o conteúdo do modal
+            </div>
+            <div class="modal-footer">
+                <button onclick="ocultarPopup()">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function exibirPopup(titulo, conteudo) {
+            const tagTitulo = document.querySelector('.modal-header h2')
+            tagTitulo.innerHTML = titulo
 
+            const tagConteudo = document.querySelector('.modal-body')
+            tagConteudo.innerHTML = conteudo
+
+            const modal = document.querySelector('.modal');
+            modal.style.display = 'block';
+        }
+
+        function ocultarPopup() {
+            const modal = document.querySelector('.modal');
+            modal.style.display = 'none';
+        }
+
+        function listarNoticias() {
+            //Efetua uma consulta à API buscando os dados da notícia
+            const noticias = [
+                { titulo: 'Brasil ganhou a copa!', descricao: 'Pegadinha!' },
+                { titulo: 'Neymar se lesionou!', descricao: 'E a novidade?' },
+                { titulo: 'Vinícius Jr. e Virgínia voltaram!', descricao: 'E o que mudou na minha vida?' }
+            ];
+
+            const container = document.querySelector('div.noticias');
+            container.innerHTML = '';
+            for (let i = 0; i < noticias.length; i++) {
+                container.innerHTML += `<div>
+                                            ${noticias[i].titulo}
+                                            <button onclick="exibirPopup('${noticias[i].titulo}', '${noticias[i].descricao}')">Ver mais...</button>
+                                        </div>`;
+            }
+        }
+
+        listarNoticias();
+
+    </script>
 </body>
 
 </html>

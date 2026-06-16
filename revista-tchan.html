@@ -1,34 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Revista Tchan</title>
     <style>
         * {
             font-family: Verdana;
         }
+
         body {
             margin: 0;
             padding: 0;
         }
 
-        nav {
-            background-color: #F5E1CE;
-            padding: 5px;
-            position: fixed;
+        header {
             top: 0px;
-            left: 0px;
-            right: 0px;
+            width: 100%;
+            background-color: #b22222;
+            padding: 10px;
+        }
+
+        nav {
+            background-color: #ebba8c;
+            padding: 5px;
+            position: sticky;
+            top: 0px;
+            width: 100%;
+
+            a {
+                text-decoration: none;
+                padding: 10px;
+                display: inline-block;
+                color: #b22222;
+            }
+
+            a:hover {
+                background-color: #b22222;
+                color: #ebba8c;
+            }
+        }
+
+        div.suporte {
+            position: fixed;
+            bottom: 5px;
+            right: 5px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            padding: 10px;
+            background-color: lightgray;
+
+            img {
+                width: 80px;
+                height: 80px;
+                display: block;
+                margin-left: auto;
+                margin-right: 0px;
+            }
+
+            textarea {
+                display: block;
+                width: 250px;
+                height: 300px;
+                margin-bottom: 10px;
+            }
+
+        }
+
+        .d-none {
+            display: none;
         }
     </style>
-
-
 </head>
+
 <body>
-    
+    <header>
+        <h1>Revista Tchan!</h1>
+    </header>
     <nav>
-        <h1>Revista Tchan</h1>
+        <a href="#">Início</a>
+        <a href="#">Segura</a>
+        <a href="#">Brasil com Egito</a>
     </nav>
+    <main>
+        <h2>Seja bem-vindo!</h2>
+    </main>
+    <footer>
+        Desenvolvido por mim
+    </footer>
+
+    <div class="suporte">
+        <form action="#" class="d-none">
+            <textarea readonly></textarea>
+            <input type="text">
+            <input type="button" value="Enviar" onclick="enviarMensagem()">
+        </form>
+        <img src="img/icone-suporte.png" onclick="exibirSuporte()">
+    </div>
+
+    <script>
+        function exibirSuporte() {
+            const form = document.querySelector('div.suporte form');
+            form.classList.toggle('d-none');
+        }
+
+        function enviarMensagem() {
+            const textarea = document.querySelector('div.suporte textarea');
+            const input = document.querySelector('div.suporte input[type="text"]');
+
+            //Enviar mensagem ao back-end e, se confirmado, efetua o que está abaixo
+
+            textarea.innerHTML += 'Você: ' + input.value + '\n';
+            input.value = '';
+        }
+
+        function atualizarMensagens() {
+            const textarea = document.querySelector('div.suporte textarea');
+
+            //Envia requisição pedindo novas mensagens ao back-end e, se êxito...
+            const mensagens = [
+                'Suporte: Oi',
+                'Suporte: Qual o problema?'
+            ];
+
+            for (let i = 0; i < mensagens.length; i++) {
+                textarea.innerHTML += mensagens[i] + '\n';
+            }
+        }
+
+        setInterval(atualizarMensagens, 10000);
+    </script>
 </body>
+
 </html>
